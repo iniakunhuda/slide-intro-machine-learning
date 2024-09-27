@@ -1,439 +1,721 @@
 ---
-theme: seriph
-background: https://source.unsplash.com/collection/94734566/1920x1080
-class: text-center
+# try also 'default' to start simple
+theme: apple-basic
+# random image from a curated Unsplash collection by Anthony
+# like them? see https://unsplash.com/collections/94734566/slidev
+# background: https://cover.sli.dev
+# some information about your slides, markdown enabled
+title: Intro Machine Learning
+# https://sli.dev/custom/highlighters.html
 highlighter: shiki
-lineNumbers: false
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+# https://sli.dev/guide/drawing
 drawings:
   persist: false
-defaults:
-  foo: true
-transition: slide-left
-title: Welcome to Slidev
+# slide transition: https://sli.dev/guide/animations#slide-transitions
+# transition: slide-left
+# enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
+layout: intro
 ---
 
-# Welcome to Slidev
+# Intro Machine Learning 
 
-Presentation slides for developers
+Pengenalan Machine Learning dan Object Detection
 
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
+<div class="absolute bottom-10">
+  <span class="font-700">
+    Miftahul Huda
+  </span>
+  <br />
+  <span class="text-gray-500">
+    Software Developer
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
 ---
-transition: fade-out
+transition: slide-left
 ---
 
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-layout: default
----
-
-# Table of contents
-
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
-```
-
-<Toc maxDepth="1"></Toc>
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-## Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover![^1]
-
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
+<div class="flex gap-5 my-10">
+  <div class="w-3/4">
+    <div class="text-4xl mb-5">
+      Miftahul Huda
+    </div>
+    <div class="text-sm">
+      <ul>
+        <li>Fullstack Developer 5+ years exp</li>
+        <li>ex-Mobile Developer @ Citilink Indonesia</li>
+        <li>Teknik Informatika @ 2019</li>
+      </ul>
+      Awards:
+      <ul>
+        <li>Apple Developer Academy Graduate 2022</li>
+        <li>Winner Swift Student Challenge 2022, Apple Inc</li>
+        <li>Lead Google Developer Student Club (GDSC) Trunojoyo 2021</li>
+        <li>3rd Hackathon FIND-IT UGM 2021</li>
+        <li>Best Graduate Faculty of Engineering UTM</li>
+        <li>many more...</li>
+      </ul>
+    </div>
+    <span class="font-700">
+      <a href="https://www.linkedin.com/in/iniakunhuda/">@iniakunhuda</a> |
+      <a href="https://iniakunhuda.com/">iniakunhuda.com</a>
+    </span>
   </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+  <div class="w-1/4">
+    <img src="/images/profil.jpg" class="w-full float-end" />
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
+---
+transition: slide-left
+layout: 3-images
+imageLeft: '/images/huda/google.jpg'
+imageTopRight: '/images/huda/sbydev.jpeg'
+imageBottomRight: '/images/huda/google2.jpg'
 ---
 
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
 
 ---
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
----
-src: ./pages/multiple-entries.md
-hide: false
----
-
----
-layout: center
+transition: slide-left
 class: text-center
 ---
 
-# Learn More
+# Hasil Akhir
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+Bikin model neural network dari dasar - implementasi
+
+<br>
+
+<div class="flex gap-5">
+<img src="/images/hasilakhir.png" class="w-1/2 object-scale-down" style="height:320px" />
+<img src="/images/hasilakhir2.png" class="w-1/2 object-scale-down" style="height:320px" />
+</div>
+
+<img src="/images/pentol/celupin.png" v-click alt="ml" class="w-1/2 object-scale-down" style="height:200px;position:absolute;right:-100px;bottom:30px" />
+
+
+---
+transition: slide-left
+class: text-center
+---
+
+<style>
+iframe {
+    align-items: center;
+    margin: auto;
+}
+</style>
+
+## AI, AI, AI..
+
+<br>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-P-ein58laA?si=s13O8LkwEUejwGxi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+@ Google I/O 2023
+
+
+<!-- https://www.mentimeter.com/app/presentation/n/alv81opnohd298fiq3r62h7eze3s9ic6/edit?question=d4srd4i91dzg -->
+
+---
+layout: statement
+transition: slide-left
+---
+
+# "Artificial intelligence is the new electricity"
+
+Andrew NG, computer scientist and Coursera co-founder
+
+---
+transition: fade
+---
+
+# Penelitian AI saat ini
+
+<br>
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*tAp3R2m1HExEM1uXREnEiw.png" class="h-80 object-scale-down" />
+
+<img src="/images/pentol/brain.jpg" alt="ml" class="w-1/2 object-scale-down" style="height:200px;position:absolute;right:-100px;bottom:30px" />
+
+
+---
+transition: fade
+---
+
+
+# Sebelum masuk ke ML,
+
+<div class="text-xl mb-5">
+Kita perlu tahu dulu <span class="text-purple-500" v-mark.circle.purple>Why</span>-nya
+</div>
+
+<img src="/images/pentol/monmaaf.jpg" alt="ml" v-click.hide class="w-full object-scale-down" style="height:300px;position:absolute" />
+
+
+<div v-after>
+<small>Pemrograman biasa melibatkan penulisan aturan yang diekspresikan dalam bahasa pemrograman (if, else, for-loop, dsb), yang berfungsi pada data dan memberikan kita jawaban.</small>
+
+<img src="/images/figure1.png" alt="game" class="w-7/12 mt-5" />
+
+<p class="text-sm">
+Contoh: Game Breakout
+</p>
+</div>
+
+<!-- Di sini, pergerakan bola dapat ditentukan oleh properti dx dan dy. Ketika bola mengenai sebuah balok, balok tersebut dihapus, dan kecepatan bola meningkat serta berubah arah. Kode bekerja berdasarkan data tentang situasi permainan. -->
+
+---
+transition: fade
+---
+
+Contoh lainnya: 
+
+<p>
+Fungsi menghitung P/E (Rasio Harga terhadap Pendapatan)
+</p>
+<br>
+
+<!-- <img src="/images/figure2.png" alt="finance data" class="w-full mt-10" /> -->
+
+```ts {all|1-2|3-4|5}
+
+// rules
+calcPE(stock) {
+  let price = readPrice(); // data
+  let earnings = readEarnings(); // data
+  return (price/earnings);
+}
+```
+
+<!-- Misalnya kamu bikin aplikasi keuangan dan fungsi untuk menghitung P/E-->
+
+---
+transition: fade
+---
+
+
+<div class="grid grid-cols-1 gap-5">
+  <div>
+    <p class="text-sm">
+      Tradisional Programming
+    </p>
+    <p class="text-3xl">
+      Rules + Data = Answers
+    </p>
+  </div>
+  <div>
+    <img src="/images/figure3.png" alt="tradisional" class="w-full mt-5" />
+  </div>
+</div>
+
+---
+
+<div class="grid grid-cols-2 gap-5">
+  <div>
+    <p class="text-sm">
+      Tradisional Programming
+    </p>
+    <p class="text-3xl">
+      Rules + Data = Answers
+    </p>
+  </div>
+  <div>
+    <img src="/images/figure3.png" alt="tradisional" class="w-full mt-5" />
+  </div>
+</div>
+
+
+<div class="grid grid-cols-4 gap-5 mt-10">
+  <div v-click>
+    <img src="/images/figure41.png" class="w-full h-60 mb-3" />
+    Jalan Kaki
+  </div>
+  <div v-click>
+    <img src="/images/figure42.png" class="w-full h-60 mb-3" />
+    + Lari
+  </div>
+  <div v-click>
+    <img src="/images/figure43.png" class="w-full h-60 mb-3" />
+    + Sepeda
+  </div>
+  <div v-click>
+    <img src="/images/figure44.png" class="w-full h-60 mb-3" />
+    ?? Golf
+  </div>
+</div>
+
+
+<!-- What about other scenarios? Usually, they are infeasible to develop because the code is too complex. It’s just not possible to write code to handle them.
+Consider, for example, activity detection. Fitness monitors that can detect our activity are a recent innovation, not just because of the availability of cheap and small hard‐ ware, but also because the algorithms to handle detection weren’t previously feasible. Let’s explore why. -->
+
+---
+layout: statement
+---
+
+<img src="/images/pentol/janganya.png" alt="ml" class="w-full object-scale-down" style="height:300px;" />
+
+## Jangan bikin manual rulesnya satu satu
+
+
+---
+layout: fact
+transition: fade
+---
+
+<span class="text-8xl"  v-mark.underline.purple>
+Machine Learning
+</span>
+
+<!--
+Bisa mengatasi hal tersebut..
+-->
+
+---
+transition: fade
+---
+
+<br>
+
+<div class="grid grid-cols-2 gap-5">
+  <div>
+    <p class="text-sm">
+      Tradisional Programming
+    </p>
+    <p class="text-3xl">
+      Rules + Data = Answers
+    </p>
+  </div>
+  <div class="h-36 bg-white">
+    <img src="/images/figure3.png" alt="tradisional" class="w-full mt-5" />
+  </div>
+</div>
+
+
+<div class="grid grid-cols-2 gap-5 mt-20">
+  <div>
+    <p class="text-sm">
+      Machine Learning
+    </p>
+    <p class="text-3xl">
+      Answer + Data = Rules
+    </p>
+  </div>
+  <div class="h-36 bg-white">
+    <img src="/images/figure5.png" alt="ml" class="w-full mt-5" />
+  </div>
+</div>
+
+
+---
+
+
+<div class="grid grid-cols-2 gap-5">
+  <div>
+    <p class="text-sm">
+      Machine Learning
+    </p>
+    <p class="text-3xl">
+      Answer + Data = Rules
+    </p>
+  </div>
+  <div>
+    <img src="/images/figure5.png" alt="ml" class="w-full mt-5" />
+  </div>
+</div>
+
+
+<div v-click>
+<img src="/images/figure6.png" alt="ml" class="w-8/12 mt-10"/>
+
+<p class="text-xl">
+Sekarang, tugas kita sebagai programmer berubah dari menentukan rule, menjadi menulis kode yang mencocokkan data dengan label
+</p>
+</div>
+
+
+<!-- So what are the implications of this? Well, now instead of us trying to figure out what the rules are, we get lots of data about our scenario, we label that data, and the com‐ puter can figure out what the rules are that make one piece of data match a particular label and another piece of data match a different label.
+How would this work for our activity detection scenario? Well, we can look at all the sensors that give us data about this person. If they have a wearable that detects infor‐ mation such as heart rate, location, speed, etc.—and if we collect a lot of instances of this data while they’re doing different activities—we end up with a scenario of having data that says “This is what walking looks like,” “This is what running looks like,” and so on 
+
+Now our job as programmers changes from figuring out the rules, to determining the activities, to writing the code that matches the data to the labels. If we can do this, then we can expand the scenarios that we can implement with code. Machine learn‐ ing is a technique that enables us to do this, but in order to get started, we’ll need a framework—and that’s where TensorFlow enters the picture.
+-->
+
+
+---
+
+# Jenis Machine Learning
+<br>
+
+<ul>
+  <li>
+    Supervised Learning
+  </li>
+  <li>
+    Unsupervised Learning
+  </li>
+  <li>
+    Reinforcement Learning
+  </li>
+</ul>
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li class="text-purple-500 font-bold">
+        Supervised Learning
+      </li>
+      <li>
+        Unsupervised Learning
+      </li>
+      <li>
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    <img src="/images/figure7.png" alt="ml" class="w-full" />
+    <p>
+      Contoh yang umum adalah klasifikasi. Filter spam pada Gmail: filter ini dilatih dengan training data banyak email beserta kelasnya (spam atau bukan spam), dan harus belajar bagaimana mengklasifikasikan email baru.
+    </p>
+  </div>
+</div>
+
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li class="text-purple-500 font-bold">
+        Supervised Learning
+      </li>
+      <li>
+        Unsupervised Learning
+      </li>
+      <li>
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    <img src="/images/figure71.png" alt="ml" class="w-full h-60 object-scale-down" />
+    <p>
+      Contoh lainnya adalah regresi, yang melibatkan prediksi nilai numerik. Misalnya, memprediksi harga saham berdasarkan fitur-fiturnya.
+    </p>
+  </div>
+</div>
+
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li class="text-purple-500 font-bold">
+        Supervised Learning
+      </li>
+      <li>
+        Unsupervised Learning
+      </li>
+      <li>
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    <p>
+      Ada yang bisa kasih contoh lagi kasus supervised learning? 🙌🏻
+    </p>
+  </div>
+</div>
+
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li class="text-purple-500 font-bold">
+        Supervised Learning
+      </li>
+      <li>
+        Unsupervised Learning
+      </li>
+      <li>
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    Beberapa metode yang termasuk 
+    <br><br>
+    <ul>
+      <li>k-Nearest Neighbors</li>
+      <li>Linear Regression</li>
+      <li>Logistic Regression</li>
+      <li>Support Vector Machines (SVMs)</li>
+      <li>Decision Trees and Random Forests</li>
+      <li>Neural networks</li>
+    </ul>
+  </div>
+</div>
+
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li>
+        Supervised Learning
+      </li>
+      <li class="text-purple-500 font-bold">
+        Unsupervised Learning
+      </li>
+      <li>
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    <img src="/images/figure73.png" alt="ml" class="w-full h-64 object-scale-down" />
+    <p class="text-sm">
+      Unsupervised learning memiliki training data yang belum berlabel. Salah satu contohnya adalah klastering (Clustering). Dimana dataset yang kita punya belum memiliki label, dan kita ingin mengelompokkan data ke dalam beberapa kelompok. Pengelompokan ini dilakukan berdasarkan kemiripan fitur-fitur data.
+    </p>
+  </div>
+</div>
+
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li>
+        Supervised Learning
+      </li>
+      <li class="text-purple-500 font-bold">
+        Unsupervised Learning
+      </li>
+      <li>
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    <img src="/images/figure72.png" alt="ml" class="w-full h-72 object-scale-down" />
+    <p class="text-sm">
+      Di kasus ini misalnya, kita punya data pengunjung mall dan ingin mengelompokkan data ke dalam beberapa kelompok. Tujuannya untuk memberikan rekomendasi diskon & produk yang sesuai dengan kelompok tersebut.
+    </p>
+  </div>
+</div>
+
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li>
+        Supervised Learning
+      </li>
+      <li class="text-purple-500 font-bold">
+        Unsupervised Learning
+      </li>
+      <li>
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    Beberapa metode yang termasuk 
+    <br><br>
+    <ul>
+      <li>
+        Clustering
+        <ul>
+          <li>K-Means</li>
+          <li>Hierarchical Cluster Analysis (HCA)</li>
+          <li>Anomaly detection and novelty detection One-class SVM</li>
+        </ul>
+      </li>
+      <li>
+        Visualization and dimensionality reduction
+        <ul>
+          <li>Principal Component Analysis (PCA)</li>
+          <li>Kernel PCA</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+---
+
+# Jenis Machine Learning
+
+<br>
+
+<div class="flex gap-10">
+  <div class="w-2/5">
+    <ul>
+      <li>
+        Supervised Learning
+      </li>
+      <li>
+        Unsupervised Learning
+      </li>
+      <li class="text-purple-500 font-bold">
+        Reinforcement Learning
+      </li>
+    </ul>
+  </div>
+  <div class="w-3/5">
+    <img src="/images/figure74.png" alt="ml" class="w-full h-62 object-scale-down" />
+    <p class="text-sm">
+      Reinforcement Learning memiliki disebut agen dalam konteks ini, dapat mengamati lingkungan, memilih dan melakukan tindakan, serta mendapatkan imbalan (atau hukuman dalam bentuk imbalan negatif). Agen tersebut harus belajar sendiri apa strategi terbaik, yang disebut policy, untuk mendapatkan imbalan paling banyak dari waktu ke waktu. Policy mendefinisikan tindakan apa yang harus dipilih oleh agen ketika berada dalam situasi tertentu.
+    </p>
+  </div>
+</div>
+
+---
+transition: fade
+---
+
+<img src="/images/image1.png" alt="ml" class="w-full object-scale-down" style="height:450px" />
+
+---
+transition: fade
+---
+
+<img src="/images/image2.png" alt="ml" class="w-full object-scale-down" style="height:450px" />
+
+
+---
+transition: fade
+class: text-center
+---
+
+Machine Learning Pipeline di Industri
+
+<img src="/images/image3.png" alt="ml" class="w-full object-scale-down" style="height:300px" />
+
+<img src="/images/pentol/gwenchana.png" v-click alt="ml" class="w-1/2 object-scale-down" style="height:200px;position:absolute;right:-100px;bottom:30px" />
+
+
+https://towardsdatascience.com/machine-learning-pipelines-feature-engineering-numbers-29f53aaec82a
+
+
+---
+transition: fade
+class: text-center
+---
+
+Proses Training dan Testing
+
+<img src="/images/image4.png" alt="ml" class="w-full object-scale-down" style="height:300px" />
+
+Split data menjadi training dan testing set ini penting untuk menghindari overfitting (model terlalu baik pada data training, tapi tidak baik pada data testing) dan underfitting (model terlalu sederhana untuk menangkap pola data). Berapa rasio yang baik untuk split data ini?
+
+
+---
+transition: fade
+class: text-center
+---
+
+<img src="/images/image5.png" alt="ml" class="w-full object-scale-down mb-3" style="height:100px" />
+
+<img src="/images/image6.png" alt="ml" class="w-full object-scale-down mb-10" style="height:250px" />
+
+TensorFlow, Keras, PyTorch adalah tiga framework populer yang digunakan dalam pengembangan dan implementasi model machine learning, khususnya deep learning
+
+
+
+<!--  TensorFlow dikembangkan oleh Google dan terkenal karena skalabilitasnya dalam produksi, Keras adalah API tingkat tinggi yang berjalan di atas TensorFlow atau Theano, memudahkan proses pembuatan model neural network, sedangkan PyTorch, yang dikembangkan oleh Facebook, dikenal karena fleksibilitas dan kemudahannya dalam debugging dengan dukungan penuh untuk komputasi dinamis. Ketiga framework ini mempermudah peneliti dan praktisi untuk membangun, melatih, serta menerapkan model kecerdasan buatan dengan lebih efisien dan cepat. -->
+
+
+---
+transition: slide-up
+class: text-center
+---
+
+
+<img src="/images/image7.png" alt="ml" class="w-full object-scale-down" style="height:350px" />
+
+
+---
+transition: fade
+---
+
+<img src="https://media.makeameme.org/created/demo-time-finally.jpg" alt="ml" class="w-full object-scale-down" style="height:480px" />
+
+
+---
+layout: statement
+---
+
+# s.id/wargalab-ml
+
+
+---
+layout: statement
+class: text-center
+---
+
+<img src="/images/pentol/sombong.jpg" alt="ml" class="w-full object-scale-down mb-3" style="height:170px" />
+
+
+# Terima Kasih 🙏🏻
+
+Tetap semangat belajar!
+
+<br>
+<hr />
+<br>
+
+<span class="text-purple-500">
+iniakunhuda.com
+</span>
+
+
+---
+layout: statement
+---
+
+
+<img src="/images/huda/image.png" alt="ml" class="w-full object-scale-down mb-3" style="height:350px" />
+
+
+Mentoring gratis, akan dilakukan secara online 1-1 sekitar 15 menitan. Bisa diskusi karir, software developer, web, mobile, komunitas, manchester united, one piece dan lainnyaa 🙌🏻
