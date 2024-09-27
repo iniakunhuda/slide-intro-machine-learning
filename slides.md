@@ -70,9 +70,9 @@ transition: slide-left
 ---
 transition: slide-left
 layout: 3-images
-imageLeft: '/images/huda/google.jpg'
-imageTopRight: '/images/huda/sbydev.jpeg'
-imageBottomRight: '/images/huda/google2.jpg'
+imageLeft: '/images/huda/summit1.png'
+imageTopRight: '/images/huda/sbydev.png'
+imageBottomRight: '/images/huda/summit2.png'
 ---
 
 
