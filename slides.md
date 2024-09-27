@@ -69,11 +69,15 @@ transition: slide-left
 
 ---
 transition: slide-left
-layout: 3-images
-imageLeft: '/images/huda/summit1.png'
-imageTopRight: '/images/huda/sbydev.png'
-imageBottomRight: '/images/huda/summit2.png'
 ---
+
+<div class="grid grid-cols-2 w-full h-full gap-x-7">
+  <img src="/images/huda/summit1.png" class="object-cover" style="height:480px" />
+  <div class="grid grid-rows-2 w-full h-full gap-y-5">
+    <img src="/images/huda/sbydev.png" class="object-cover w-full" style="height:230px" />
+    <img src="/images/huda/summit2.png" class="object-cover w-full" style="height:230px" />
+  </div>
+</div>
 
 
 ---
