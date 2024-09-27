@@ -1,0 +1,11 @@
+{
+    "emmet.excludeLanguages": [],
+    "emmet.showExpandedAbbreviation": "never",
+    "emmet.includeLanguages": {
+        "markdown": "html",
+    },
+    "files.associations": {
+        "*.vue": "vue",
+        "*.css": "tailwindcss"
+    },
+}
